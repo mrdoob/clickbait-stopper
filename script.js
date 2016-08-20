@@ -32,7 +32,6 @@ var list = [
 	/why we really shouldn['’]?t/i,
 	/with this one/i,
 	/won['’]?t believe/i,
-	/you can/i,
 	/you won['’]?t believe/i
 ];
 
