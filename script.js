@@ -38,7 +38,7 @@ function isClickbait( string ) {
 
 	if ( string.length < 20 || string.length > 100 ) return false;
 
-		return list.some( function( clickbait, i ) {
+		return list.some( function ( clickbait, i ) {
 
 				if ( clickbait.test( string ) ) {
 
