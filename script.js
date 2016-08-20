@@ -1,11 +1,13 @@
 var list = [
-	/why we really shouldn\'t/i,
+	/why we really shouldn['’]?t/i,
 	/what I learned about/i,
 	/can teach us about/i,
 	/powerful photos/i,
 	/heartbreaking/i,
 	/may affect/i,
 	/somebody needs to/i,
+	/you won['’]?t believe/i,
+	/what happens/i,
 	/^\d+/
 ];
 
