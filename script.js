@@ -1,4 +1,4 @@
-var list = [
+const list = [
 	/^\d+ /,
 	/^can you/i,
 	/^this /i,
