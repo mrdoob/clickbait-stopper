@@ -1,10 +1,11 @@
 var list = [
 	/^\d+/,
+	/^can you/i,
 	/all (he|she|they) did was/i,
 	/can teach us about/i,
 	/didn['’]t know what/i,
 	/get rid of/i,
-	/(heartbreaking|incredible|powerful|shocking|unusual)/i,
+	/(epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i,
 	/may affect/i,
 	/never realized/i,
 	/(pictures|photos) of/i,
