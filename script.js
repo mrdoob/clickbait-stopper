@@ -1,4 +1,4 @@
-var list = [
+const list = [
 	/^\d+ /,
 	/^can you/i,
 	/^this /i,
@@ -35,29 +35,21 @@ var list = [
 	/you won['’]?t believe/i
 ];
 
-function test( string ) {
-
+function isClickbait( string ) {
 	if ( string.length < 20 || string.length > 100 ) return false;
-
-	for ( var i = 0, l = list.length; i < l; i ++ ) {
-
-		if ( list[ i ].test( string ) ) return true;
-
-	}
-
-	return false;
-
+    return list.some(function(clickbait, i) {
+        if ( clickbait.test( string ) ) {
+            console.log( clickbait, string, i );
+            return true;
+        }
+    });
 }
 
-var node;
-var nodeIterator = document.createNodeIterator( document.body, NodeFilter.SHOW_TEXT );
+let node;
+const nodeIterator = document.createNodeIterator( document.body, NodeFilter.SHOW_TEXT );
 
 while ( node = nodeIterator.nextNode() ) {
-
-	if ( test( node.textContent.trim() ) ) {
-
+	if ( isClickbait( node.textContent.trim() ) ) {
 		node.parentNode.style.textDecoration = 'line-through';
-
 	}
-
 }
