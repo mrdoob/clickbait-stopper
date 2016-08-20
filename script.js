@@ -1,5 +1,5 @@
 var list = [
-	/^\d+/,
+	/^\d+ /,
 	/^can you/i,
 	/^this (dad|mom|hot)/i,
 	/all (he|she|they) did was/i,
