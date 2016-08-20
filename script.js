@@ -1,7 +1,6 @@
 const list = [
 	/^\d+ /,
 	/^can you/i,
-	/^this /i,
 	/all (he|she|they) did was/i,
 	/all the best/i,
 	/can teach us about/i,
@@ -36,20 +35,31 @@ const list = [
 ];
 
 function isClickbait( string ) {
+
 	if ( string.length < 20 || string.length > 100 ) return false;
-    return list.some(function(clickbait, i) {
-        if ( clickbait.test( string ) ) {
-            console.log( clickbait, string, i );
-            return true;
-        }
-    });
+
+		return list.some( function( clickbait, i ) {
+
+				if ( clickbait.test( string ) ) {
+
+						console.log( clickbait, string );
+						return true;
+
+				}
+
+		} );
+
 }
 
 let node;
 const nodeIterator = document.createNodeIterator( document.body, NodeFilter.SHOW_TEXT );
 
 while ( node = nodeIterator.nextNode() ) {
+
 	if ( isClickbait( node.textContent.trim() ) ) {
+
 		node.parentNode.style.textDecoration = 'line-through';
+
 	}
+
 }
