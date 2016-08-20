@@ -42,7 +42,7 @@ function isClickbait( string ) {
 
 				if ( clickbait.test( string ) ) {
 
-						console.log( clickbait, string );
+						console.log( i, string );
 						return true;
 
 				}
