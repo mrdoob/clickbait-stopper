@@ -49,7 +49,7 @@ function parseNode( element ) {
 
 	if ( element.nodeType === 3 ) {
 
-		if ( test( element.nodeValue ) ) {
+		if ( test( element.nodeValue.trim() ) ) {
 
 			element.parentNode.style.textDecoration = 'line-through';
 
