@@ -1,6 +1,7 @@
 var list = [
 	/^\d+/,
 	/^can you/i,
+	/^this (dad|mom|hot)/i,
 	/all (he|she|they) did was/i,
 	/can teach us about/i,
 	/didn['’]t know what/i,
@@ -14,7 +15,6 @@ var list = [
 	/signs you['’]?re/i,
 	/somebody needs to/i,
 	/things that will/i,
-	/this hot new/i,
 	/trump/i,
 	/until you see/i,
 	/we need to talk about/i,
