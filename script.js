@@ -37,7 +37,7 @@ var list = [
 
 function test( string ) {
 
-	if ( string.length < 15 ) return false;
+	if ( string.length < 15 || string.length > 100 ) return false;
 
 	for ( var i = 0, l = list.length; i < l; i ++ ) {
 
