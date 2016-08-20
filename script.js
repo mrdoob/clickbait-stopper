@@ -6,6 +6,7 @@ var list = [
 	/didn['’]t know what/i,
 	/get rid of/i,
 	/(epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i,
+	/how one (man|woman)/i,
 	/may affect/i,
 	/never realized/i,
 	/(pictures|photos) of/i,
@@ -13,6 +14,7 @@ var list = [
 	/signs you['’]?re/i,
 	/somebody needs to/i,
 	/things that will/i,
+	/this hot new/i,
 	/trump/i,
 	/until you see/i,
 	/we need to talk about/i,
@@ -27,14 +29,10 @@ var list = [
 	/when you read these/i,
 	/who['’]d thougt/i,
 	/why we really shouldn['’]?t/i,
+	/with this one/i,
 	/won['’]?t believe/i,
 	/you can/i,
-	/you won['’]?t believe/i,
-	/this hot new/i,
-	/signs you['`]re/i,
-	/how one man/i,
-	/how one woman/i,
-	/with this one/i
+	/you won['’]?t believe/i
 ];
 
 function test( string ) {
