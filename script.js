@@ -37,7 +37,12 @@ const list = [
 
 function isClickbait( string ) {
 	if ( string.length < 20 || string.length > 100 ) return false;
-	return list.some( clickbait => clickbait.test( string ) );
+    return list.some(function(clickbait, i) {
+        if ( clickbait.test( string ) ) {
+            console.log( clickbait, string, i );
+            return true;
+        }
+    });
 }
 
 let node;
