@@ -40,12 +40,12 @@ function isClickbait( string ) {
 
 	return list.some( function ( clickbait, i ) {
 
-			if ( clickbait.test( string ) ) {
+		if ( clickbait.test( string ) ) {
 
-					console.log( i, string );
-					return true;
+			console.log( i, string );
+			return true;
 
-			}
+		}
 
 	} );
 
