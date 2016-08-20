@@ -35,40 +35,17 @@ var list = [
 	/you won['’]?t believe/i
 ];
 
-function test( string ) {
-
+function isClickbait( string ) {
 	if ( string.length < 15 || string.length > 100 ) return false;
-
-	for ( var i = 0, l = list.length; i < l; i ++ ) {
-
-		if ( list[ i ].test( string ) ) return true;
-
-	}
-
-	return false;
-
+	return list.some( clickbait => clickbait.test( string ) );
 }
 
 function parseNode( element ) {
-
-	if ( element.nodeType === 3 ) {
-
-		if ( test( element.nodeValue.trim() ) ) {
-
-			element.parentNode.style.textDecoration = 'line-through';
-
-		}
-
+	if ( element.nodeType === 3 && isClickbait( element.nodeValue.trim() ) ) {
+		element.parentNode.style.textDecoration = 'line-through';
 	}
 
-	var childNodes = element.childNodes;
-
-	for ( var i = 0, l = childNodes.length; i < l; i ++ ) {
-
-		parseNode( childNodes[ i ] );
-
-	}
-
+	[...element.childNodes].forEach( parseNode );
 }
 
 parseNode( document.body );
