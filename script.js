@@ -1,8 +1,9 @@
 var list = [
 	/^\d+ /,
 	/^can you/i,
-	/^this (dad|mom|hot)/i,
+	/^this /i,
 	/all (he|she|they) did was/i,
+	/all the best/i,
 	/can teach us about/i,
 	/(celebrit|epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i,
 	/didn['’]t know what/i,
