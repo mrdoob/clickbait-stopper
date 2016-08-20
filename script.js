@@ -1,12 +1,13 @@
 var list = [
-	/^\d+/,
+	/^\d+ /,
 	/^can you/i,
-	/^this (dad|mom|hot)/i,
+	/^this /i,
 	/all (he|she|they) did was/i,
+	/all the best/i,
 	/can teach us about/i,
+	/(celebrit|epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i,
 	/didn['’]t know what/i,
 	/get rid of/i,
-	/(epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i,
 	/how one (man|woman)/i,
 	/may affect/i,
 	/never realized/i,
@@ -31,21 +32,19 @@ var list = [
 	/why we really shouldn['’]?t/i,
 	/with this one/i,
 	/won['’]?t believe/i,
-	/you can/i,
 	/you won['’]?t believe/i
 ];
 
 function isClickbait( string ) {
-	if ( string.length < 15 || string.length > 100 ) return false;
+	if ( string.length < 20 || string.length > 100 ) return false;
 	return list.some( clickbait => clickbait.test( string ) );
 }
 
-function parseNode( element ) {
-	if ( element.nodeType === 3 && isClickbait( element.nodeValue.trim() ) ) {
-		element.parentNode.style.textDecoration = 'line-through';
+let node;
+const nodeIterator = document.createNodeIterator( document.body, NodeFilter.SHOW_TEXT );
+
+while ( node = nodeIterator.nextNode() ) {
+	if ( isClickbait( node.textContent.trim() ) ) {
+		node.parentNode.style.textDecoration = 'line-through';
 	}
-
-	[...element.childNodes].forEach( parseNode );
 }
-
-parseNode( document.body );
