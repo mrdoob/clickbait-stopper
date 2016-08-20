@@ -29,7 +29,12 @@ var list = [
 	/why we really shouldn['’]?t/i,
 	/won['’]?t believe/i,
 	/you can/i,
-	/you won['’]?t believe/i
+	/you won['’]?t believe/i,
+	/this hot new/i,
+	/signs you['`]re/i,
+	/how one man/i,
+	/how one woman/i,
+	/with this one/i
 ];
 
 function test( string ) {
