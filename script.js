@@ -38,16 +38,16 @@ function isClickbait( string ) {
 
 	if ( string.length < 20 || string.length > 100 ) return false;
 
-		return list.some( function ( clickbait, i ) {
+	return list.some( function ( clickbait, i ) {
 
-				if ( clickbait.test( string ) ) {
+			if ( clickbait.test( string ) ) {
 
-						console.log( i, string );
-						return true;
+					console.log( i, string );
+					return true;
 
-				}
+			}
 
-		} );
+	} );
 
 }
 
