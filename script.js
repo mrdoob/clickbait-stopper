@@ -13,6 +13,7 @@ var list = [
 	/signs you['’]?re/i,
 	/somebody needs to/i,
 	/things that will/i,
+	/trump/i,
 	/until you see/i,
 	/we need to talk about/i,
 	/what could possibly/i,
