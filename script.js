@@ -49,21 +49,15 @@ function test( string ) {
 
 }
 
-function parseNode( element ) {
+var node;
+var nodeIterator = document.createNodeIterator( document.body, NodeFilter.SHOW_TEXT );
 
-	var iter = document.createNodeIterator ( element, NodeFilter.SHOW_TEXT );
+while ( node = nodeIterator.nextNode() ) {
 
-	while (textnode = iter.nextNode()) {
+	if ( test( node.textContent.trim() ) ) {
 
-		if ( test( textnode.textContent.trim() ) ) {
-
-			textnode.parentNode.style.textDecoration = 'line-through';
-
-		}
+		node.parentNode.style.textDecoration = 'line-through';
 
 	}
 
-
 }
-
-parseNode( document.body );
