@@ -37,7 +37,7 @@ var list = [
 
 function test( string ) {
 
-	if ( string.length < 15 || string.length > 100 ) return false;
+	if ( string.length < 15 ) return false;
 
 	for ( var i = 0, l = list.length; i < l; i ++ ) {
 
@@ -51,23 +51,18 @@ function test( string ) {
 
 function parseNode( element ) {
 
-	if ( element.nodeType === 3 ) {
+	var iter = document.createNodeIterator ( element, NodeFilter.SHOW_TEXT );
 
-		if ( test( element.nodeValue.trim() ) ) {
+	while (textnode = iter.nextNode()) {
 
-			element.parentNode.style.textDecoration = 'line-through';
+		if ( test( textnode.textContent.trim() ) ) {
+
+			textnode.parentNode.style.textDecoration = 'line-through';
 
 		}
 
 	}
 
-	var childNodes = element.childNodes;
-
-	for ( var i = 0, l = childNodes.length; i < l; i ++ ) {
-
-		parseNode( childNodes[ i ] );
-
-	}
 
 }
 
