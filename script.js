@@ -52,14 +52,12 @@ function isClickbait( string ) {
 
 const elements = document.getElementsByTagName( 'a' );
 
-for ( var i = 0, l = elements.length; i < l; i ++ ) {
+[ ...elements ].forEach( function( element ) {
+    
+    if ( isClickbait( element.textContent.trim() ) ) {
 
-	var element = elements[ i ];
+        element.style.textDecoration = 'line-through';
 
-	if ( isClickbait( element.textContent.trim() ) ) {
+    }
 
-		element.style.textDecoration = 'line-through';
-
-	}
-
-}
+});
