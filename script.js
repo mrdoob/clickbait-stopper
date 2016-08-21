@@ -31,7 +31,6 @@ const list = [
 	/why we really shouldn['’]?t/i,
 	/with this one/i,
 	/won['’]?t believe/i,
-	/you won['’]?t believe/i
 ];
 
 function isClickbait( string ) {
