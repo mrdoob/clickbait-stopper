@@ -54,14 +54,45 @@ function isClickbait( string ) {
 
 }
 
-const elements = document.getElementsByTagName( 'a' );
 
-[ ...elements ].forEach( function( element ) {
-    
-    if ( isClickbait( element.textContent.trim() ) ) {
+function strikeIfClickbait ( element ) {
 
-        element.style.textDecoration = 'line-through';
+	if ( isClickbait( element.textContent.trim() ) ) {
 
-    }
+		element.style.textDecoration = 'line-through';
 
-});
+	}
+}
+
+
+function strikeClickbaitLinks ( element ) {
+    const elements = element.getElementsByTagName( 'a' );
+
+    [ ...elements ].forEach( strikeIfClickbait );
+}
+
+
+function initObserver () {
+    const target = document.body;
+
+    const config = {
+        childList: true,
+        subtree: true
+    };
+
+    const observer = new MutationObserver( function( mutations ) {
+
+        mutations
+            .map( mutation => [ ...mutation.addedNodes ])
+            .reduce( ( a, b ) => a.concat( b ), [] )
+            .forEach( strikeClickbaitLinks );
+
+    } );
+
+    observer.observe(target, config);
+}
+
+
+strikeClickbaitLinks( document.body );
+
+initObserver();
