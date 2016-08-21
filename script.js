@@ -76,20 +76,25 @@ function initObserver () {
     const target = document.body;
 
     const config = {
+
         childList: true,
+
         subtree: true
+
     };
 
     const observer = new MutationObserver( function( mutations ) {
 
         mutations
             .map( mutation => [ ...mutation.addedNodes ])
+
             .reduce( ( a, b ) => a.concat( b ), [] )
+
             .forEach( strikeClickbaitLinks );
 
     } );
 
-    observer.observe(target, config);
+    observer.observe( target, config );
 }
 
 
