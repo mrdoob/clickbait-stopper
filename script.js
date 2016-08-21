@@ -50,14 +50,15 @@ function isClickbait( string ) {
 
 }
 
-let node;
-const nodeIterator = document.createNodeIterator( document.body, NodeFilter.SHOW_TEXT );
+const elements = document.getElementsByTagName( 'a' );
 
-while ( node = nodeIterator.nextNode() ) {
+for ( var i = 0, l = elements.length; i < l; i ++ ) {
 
-	if ( isClickbait( node.textContent.trim() ) ) {
+	var element = elements[ i ];
 
-		node.parentNode.style.textDecoration = 'line-through';
+	if ( isClickbait( element.textContent.trim() ) ) {
+
+		element.style.textDecoration = 'line-through';
 
 	}
 
