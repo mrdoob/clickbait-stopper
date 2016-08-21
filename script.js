@@ -1,7 +1,6 @@
 const list = [
 	/^\d+ /,
 	/^can you/i,
-	/^this /i,
 	/all (he|she|they) did was/i,
 	/all the best/i,
 	/can teach us about/i,
@@ -31,25 +30,36 @@ const list = [
 	/who['’]d thougt/i,
 	/why we really shouldn['’]?t/i,
 	/with this one/i,
-	/won['’]?t believe/i,
-	/you won['’]?t believe/i
+	/won['’]?t believe/i
 ];
 
 function isClickbait( string ) {
+
 	if ( string.length < 20 || string.length > 100 ) return false;
-    return list.some(function(clickbait, i) {
-        if ( clickbait.test( string ) ) {
-            console.log( clickbait, string, i );
-            return true;
-        }
-    });
+
+	return list.some( function ( clickbait, i ) {
+
+		if ( clickbait.test( string ) ) {
+
+			console.log( i, string );
+			return true;
+
+		}
+
+	} );
+
 }
 
-let node;
-const nodeIterator = document.createNodeIterator( document.body, NodeFilter.SHOW_TEXT );
+const elements = document.getElementsByTagName( 'a' );
 
-while ( node = nodeIterator.nextNode() ) {
-	if ( isClickbait( node.textContent.trim() ) ) {
-		node.parentNode.style.textDecoration = 'line-through';
+for ( var i = 0, l = elements.length; i < l; i ++ ) {
+
+	var element = elements[ i ];
+
+	if ( isClickbait( element.textContent.trim() ) ) {
+
+		element.style.textDecoration = 'line-through';
+
 	}
+
 }
