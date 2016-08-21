@@ -3,6 +3,8 @@ const list = [
 	/^can you/i,
 	/all (he|she|they) did was/i,
 	/all the best/i,
+	/best comeback/i,
+	/can['’]t handle/i,
 	/can teach us about/i,
 	/(celebrit|epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i,
 	/didn['’]t know what/i,
@@ -17,6 +19,7 @@ const list = [
 	/things that will/i,
 	/trump/i,
 	/until you see/i,
+	/we can (tell|guess) (what )?your/i,
 	/we need to talk about/i,
 	/what could possibly/i,
 	/what happens/i,
@@ -32,6 +35,7 @@ const list = [
 	/with this one/i,
 	/won['’]?t believe/i
 ];
+
 
 function isClickbait( string ) {
 
