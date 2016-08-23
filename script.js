@@ -1,6 +1,7 @@
 const list = [
 	/^\d+ /,
 	/^can you/i,
+	/^this could/i,
 	/all (he|she|they) did was/i,
 	/all the best/i,
 	/best comeback/i,
