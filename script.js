@@ -56,48 +56,44 @@ function isClickbait( string ) {
 }
 
 
-function strikeIfClickbait ( element ) {
+function strikeIfClickbait( element ) {
 
 	if ( isClickbait( element.textContent.trim() ) ) {
 
 		element.style.textDecoration = 'line-through';
 
 	}
+
 }
 
+function strikeClickbaitLinks( element ) {
 
-function strikeClickbaitLinks ( element ) {
-    const elements = element.getElementsByTagName( 'a' );
+	const elements = element.getElementsByTagName( 'a' );
+	[ ...elements ].forEach( strikeIfClickbait );
 
-    [ ...elements ].forEach( strikeIfClickbait );
 }
 
+function initObserver() {
 
-function initObserver () {
-    const target = document.body;
+	const target = document.body;
 
-    const config = {
+	const config = {
+		childList: true,
+		subtree: true
+	};
 
-        childList: true,
+	const observer = new MutationObserver( function ( mutations ) {
 
-        subtree: true
+		mutations
+			.map( mutation => [ ...mutation.addedNodes ] )
+			.reduce( ( a, b ) => a.concat( b ), [] )
+			.forEach( strikeClickbaitLinks );
 
-    };
+	} );
 
-    const observer = new MutationObserver( function( mutations ) {
+	observer.observe( target, config );
 
-        mutations
-            .map( mutation => [ ...mutation.addedNodes ])
-
-            .reduce( ( a, b ) => a.concat( b ), [] )
-
-            .forEach( strikeClickbaitLinks );
-
-    } );
-
-    observer.observe( target, config );
 }
-
 
 strikeClickbaitLinks( document.body );
 
