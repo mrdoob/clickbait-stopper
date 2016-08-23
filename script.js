@@ -3,6 +3,8 @@ const list = [
 	/^can you/i,
 	/all (he|she|they) did was/i,
 	/all the best/i,
+	/best comeback/i,
+	/can['’]t handle/i,
 	/can teach us about/i,
 	/(celebrit|epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i,
 	/didn['’]t know what/i,
@@ -17,6 +19,7 @@ const list = [
 	/things that will/i,
 	/trump/i,
 	/until you see/i,
+	/we can (tell|guess) (what )?your/i,
 	/we need to talk about/i,
 	/what could possibly/i,
 	/what happens/i,
@@ -32,6 +35,7 @@ const list = [
 	/with this one/i,
 	/won['’]?t believe/i
 ];
+
 
 function isClickbait( string ) {
 
@@ -50,16 +54,50 @@ function isClickbait( string ) {
 
 }
 
-const elements = document.getElementsByTagName( 'a' );
 
-for ( var i = 0, l = elements.length; i < l; i ++ ) {
-
-	var element = elements[ i ];
+function strikeIfClickbait ( element ) {
 
 	if ( isClickbait( element.textContent.trim() ) ) {
 
 		element.style.textDecoration = 'line-through';
 
 	}
-
 }
+
+
+function strikeClickbaitLinks ( element ) {
+    const elements = element.getElementsByTagName( 'a' );
+
+    [ ...elements ].forEach( strikeIfClickbait );
+}
+
+
+function initObserver () {
+    const target = document.body;
+
+    const config = {
+
+        childList: true,
+
+        subtree: true
+
+    };
+
+    const observer = new MutationObserver( function( mutations ) {
+
+        mutations
+            .map( mutation => [ ...mutation.addedNodes ])
+
+            .reduce( ( a, b ) => a.concat( b ), [] )
+
+            .forEach( strikeClickbaitLinks );
+
+    } );
+
+    observer.observe( target, config );
+}
+
+
+strikeClickbaitLinks( document.body );
+
+initObserver();
