@@ -20,6 +20,7 @@ const list = [
 	/things that will/i,
 	/trump/i,
 	/until you see/i,
+	/you should watch/i,
 	/we can (tell|guess) (what )?your/i,
 	/we need to talk about/i,
 	/what could possibly/i,
