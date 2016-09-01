@@ -1,6 +1,5 @@
 const list = [
 	/^\d+ /,
-	/\s(celebrit|epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i,
 	/^can you/i,
 	/^this could/i,
 	/all (he|she|they) did was/i,
@@ -35,7 +34,8 @@ const list = [
 	/who['’]d thougt/i,
 	/why we really shouldn['’]?t/i,
 	/with this one/i,
-	/won['’]?t believe/i
+	/won['’]?t believe/i,
+	/\s(celebrit|epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i
 ];
 
 
