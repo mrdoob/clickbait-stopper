@@ -1,5 +1,6 @@
 const list = [
 	/^\d+ /,
+	/\s(celebrit|epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i,
 	/^can you/i,
 	/^this could/i,
 	/all (he|she|they) did was/i,
@@ -7,7 +8,6 @@ const list = [
 	/best comeback/i,
 	/can['’]t handle/i,
 	/can teach us about/i,
-	/(celebrit|epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i,
 	/didn['’]t know what/i,
 	/get rid of/i,
 	/how one (man|woman)/i,
