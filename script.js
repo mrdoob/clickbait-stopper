@@ -26,6 +26,7 @@ const list = [
 	/what (he|she|they) found/i,
 	/what I learned about/i,
 	/what this/i,
+	/what to expect/i,
 	/what you need to know/i,
 	/when (he|she|they)/i,
 	/when this (man|woman|baby|child|puppy|dog|kitten)/i,
