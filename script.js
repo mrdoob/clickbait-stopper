@@ -1,6 +1,7 @@
 const list = [
 	/^\d+ (pictures|movies|shows|stories|things|trailers|tweets)/i,
 	/^can you/i,
+	/^here['’]s (how|what)/i,
 	/^this could/i,
 	/all (he|she|they) did was/i,
 	/all the best/i,
