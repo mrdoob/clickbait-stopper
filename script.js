@@ -1,4 +1,5 @@
 const list = [
+	/^\d+ (pictures|shows|stories|things|trailers)/i,
 	/^can you/i,
 	/^this could/i,
 	/all (he|she|they) did was/i,
