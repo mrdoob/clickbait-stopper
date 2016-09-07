@@ -81,13 +81,6 @@ function strikeClickbaitLinks( element ) {
 
 function initObserver() {
 
-	const target = document.body;
-
-	const config = {
-		childList: true,
-		subtree: true
-	};
-
 	const observer = new MutationObserver( function ( mutations ) {
 
 		mutations.forEach( function ( mutation ) {
@@ -102,7 +95,7 @@ function initObserver() {
 
 	} );
 
-	observer.observe( target, config );
+	observer.observe( document.body, { childList: true, subtree: true } );
 
 }
 
