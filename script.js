@@ -1,6 +1,6 @@
 const list = [
-	/^\d+ (genius|pictures|movies|shows|stories|things|trailers|tumblr|tweets|life-changing)/i,
-	/^\d+ of the \w+est/,
+	/^\d+ (\w+ )?(animals|pictures|lessons|movies|secrets|shows|stories|things|times|trailers|tumblr|tweets)/i,
+	/^\d+ of the \w+est/i,
 	/^can you/i,
 	/^here['’]s (how|what)/i,
 	/^this could/i,
@@ -22,26 +22,25 @@ const list = [
 	/things that will/i,
 	/trump/i,
 	/until you see/i,
-	/you should watch/i,
-	/you should know/i,
+	/you (need to|should) (know|watch)/i,
+	/we bet you can/i,
 	/we can (tell|guess) (what )?your/i,
 	/we need to talk about/i,
-	/weirdly/i,
 	/what could possibly/i,
 	/what happens/i,
 	/what (he|she|they) found/i,
 	/what I learned about/i,
 	/what this/i,
 	/what to expect/i,
-	/what you need to know/i,
 	/when (he|she|they)/i,
 	/when this (man|woman|baby|child|puppy|dog|kitten)/i,
 	/when you read these/i,
 	/who['’]d thougt/i,
 	/why we really shouldn['’]?t/i,
 	/with this one/i,
+	/will never tell/i,
 	/won['’]?t believe/i,
-	/\s(celebrit|epic|fantastic|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual)/i
+	/\s(celebrit|epic|fantastic|genius|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual|weirdly)/i
 ];
 
 
