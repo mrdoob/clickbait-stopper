@@ -87,10 +87,15 @@ function initObserver() {
 
 	const observer = new MutationObserver( function ( mutations ) {
 
-		mutations
-			.map( mutation => [ ...mutation.addedNodes ] )
-			.reduce( ( a, b ) => a.concat( b ), [] )
-			.forEach( strikeClickbaitLinks );
+		mutations.forEach( function ( mutation ) {
+
+			[ ...mutation.addedNodes ].forEach( function ( node ) {
+
+				if ( node.nodeType === Node.ELEMENT_NODE ) strikeClickbaitLinks( node );
+
+			} );
+
+		} );
 
 	} );
 
