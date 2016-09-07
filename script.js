@@ -89,7 +89,7 @@ function initObserver() {
 
 		mutations.forEach( function ( mutation ) {
 
-			[ ...mutation.addedNodes ].forEach( function ( node ) {
+			mutation.addedNodes.forEach( function ( node ) {
 
 				if ( node.nodeType === Node.ELEMENT_NODE ) strikeClickbaitLinks( node );
 
