@@ -1,3 +1,4 @@
+// create a baitlist to check our page content against
 const list = [
 	/^\d+ (\w+ )?(animals|pictures|lessons|movies|secrets|shows|stories|things|times|trailers|tumblr|tweets)/i,
 	/^\d+ of the \w+est/i,
@@ -43,13 +44,13 @@ const list = [
 	/\s(celebrit|epic|fantastic|genius|heartbreaking|incredibl|powerful|shocking|teen|terribl|unusual|weirdly)/i
 ];
 
-
+// function to compare string to our baitlist.
 function isClickbait( string ) {
-
+	// is the string short than 20 or longer than 100 characters? Probably not a title.
 	if ( string.length < 20 || string.length > 100 ) return false;
-
+	// it is? let's compare it to our baitlist
 	return list.some( function ( clickbait, i ) {
-
+		// if it matches, log the offending string to the console and return it to our strike function
 		if ( clickbait.test( string ) ) {
 
 			console.log( i, string );
@@ -61,7 +62,7 @@ function isClickbait( string ) {
 
 }
 
-
+// found some clickbait? Let's strike it through
 function strikeIfClickbait( element ) {
 
 	if ( isClickbait( element.textContent.trim() ) ) {
@@ -71,6 +72,7 @@ function strikeIfClickbait( element ) {
 	}
 
 }
+
 
 function strikeClickbaitLinks( element ) {
 
@@ -100,5 +102,5 @@ function initObserver() {
 }
 
 strikeClickbaitLinks( document.body );
-
+// invoke the initObserver function to start the checking process
 initObserver();
